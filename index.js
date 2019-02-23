@@ -1,6 +1,9 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 const MongoCliente = require('mongodb').MongoClient;
+const joi = require('joi');
+
+const casaSchema = require('./schemas/casas.js');
 
 const stringConexao = "mongodb://got-marco:nerdzao123@ds021884.mlab.com:21884/got-handson"; 
 
@@ -28,8 +31,19 @@ async function main() {
 
     app.post("/casas", async (req, res) => {
         const novaCasa = req.body;
+
+        const resultadoDaValidacao = joi.validate(novaCasa, casaSchema);
+
+        if(resultadoDaValidacao.error != null){
+            res.status(400);
+            res.send({
+                error: resultadoDaValidacao.error.details[0].message
+            });
+            return;
+        }
+
         const result = await colecaoCasas.insertOne(novaCasa);
-        res.send(result);
+        res.status(201).send(result);
     });
 
     app.listen(3000, () => {
