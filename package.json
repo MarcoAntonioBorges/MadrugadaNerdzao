@@ -1,0 +1,24 @@
+{
+  "name": "madrugada-nodezera",
+  "version": "1.0.0",
+  "description": "Projeto do evento Madrugada Nerdzao feito no evento matrugada nerdzao",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoAntonioBorges/MadrugadaNerdzao.git"
+  },
+  "author": "Marco A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcoAntonioBorges/MadrugadaNerdzao/issues"
+  },
+  "homepage": "https://github.com/MarcoAntonioBorges/MadrugadaNerdzao#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "mongodb": "^3.1.13"
+  }
+}
